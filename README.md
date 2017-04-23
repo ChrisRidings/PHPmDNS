@@ -31,7 +31,7 @@ Example of scanning for chromecasts
 							}
 							// The chromecast name is in $name. Send a a SRV query
 							$mdns->query($name, 1, 33, "");
-							$cc=5;
+							$cc=15;
 						}
 					}
 					if ($inpacket->answerrrs[$x]->qtype == 33) {
@@ -49,7 +49,7 @@ Example of scanning for chromecasts
 						$chromecasts[$inpacket->answerrrs[$x]->name] = array("port"=>$port, "ip"=>"", "target"=>$target);
 						// We know the name and port. Send an A query for the IP address
 						$mdns->query($target,1,1,"");
-						$cc=5;
+						$cc=15;
 					}
 					if ($inpacket->answerrrs[$x]->qtype == 1) {
 						$d = $inpacket->answerrrs[$x]->data;
